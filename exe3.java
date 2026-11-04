@@ -1,40 +1,30 @@
-
 import java.util.Scanner;
 
 public class exe3 {
     public static void main(String[] args) {
         Scanner ler = new Scanner(System.in);
-        final int TAM = 10;
-        int i, j, a[];
-        a = new int[TAM];
-    
-
-        for (i = 0; i < TAM; i++) {
-            System.out.println("Digite o " + (i + 1) + "º número de A:");
-            a[i] = ler.nextInt();
+    	final int TAM=10;
+    	int a[],b[],i;
+    	a = new int[TAM];
+    	b = new int[TAM];
+    	
+    	for(i=0;i<TAM;i++) {
+    		System.out.println("Digite o valor de A "+(i+1)+"o numero");
+    		a[i] = ler.nextInt();
+    	}
+    	
+        for (i=0;i<TAM;i++) {
+            b[i]=a[9 - i];
         }
 
-        for (i = 0; i < TAM; i++) {
-            boolean primo = true;
+        System.out.println();
 
-            if (a[i] < 2) {
-                primo = false;
-            } else {
-                for (j = 2; j * j <= a[i]; j++) {
-                    if (a[i] % j == 0) {
-                        primo = false;
-                        break;
-                    }
-                }
-            }
-
-            if (primo) {
-                System.out.println(a[i] + " é primo");
-            } else {
-                System.out.println(a[i] + " não é primo");
-            }
-        }
-
+    	System.out.print("\nb[] = [");
+    	for(i=0;i<TAM;i++) {
+    		System.out.print(b[i]+" ");
+    	}
+    	System.out.print("]");
+        
         ler.close();
     }
 }
