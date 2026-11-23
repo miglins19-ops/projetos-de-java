@@ -1,30 +1,34 @@
-import java.util.Scanner;
 
+import java.util.Random;
 public class exe3 {
+
     public static void main(String[] args) {
-        Scanner ler = new Scanner(System.in);
-    	final int TAM=10;
-    	int a[],b[],i;
-    	a = new int[TAM];
-    	b = new int[TAM];
-    	
-    	for(i=0;i<TAM;i++) {
-    		System.out.println("Digite o valor de A "+(i+1)+"o numero");
-    		a[i] = ler.nextInt();
-    	}
-    	
-        for (i=0;i<TAM;i++) {
-            b[i]=a[9 - i];
+
+        int matriz[][] = new int[3][4];
+        int x = 0, y = 0, soma = 0;
+
+        Random random = new Random();
+        for (x =0; x <3;x++) {
+            for (y =0; y < 3;y++) {
+                matriz[x][y] = random.nextInt(101);
+            }
         }
+        for (x = 0; x < 3; x++) {
+            soma = 0;
+            for (y = 0;y<3;y++) {
+                soma = soma + matriz[x][y];
+            }
+            matriz[x][3] = soma;
+        }
+        for (x = 0; x < 3; x++) {
 
-        System.out.println();
+            System.out.print("\n { ");
 
-    	System.out.print("\nb[] = [");
-    	for(i=0;i<TAM;i++) {
-    		System.out.print(b[i]+" ");
-    	}
-    	System.out.print("]");
-        
-        ler.close();
+            for (y= 0;y < 4;y++) {
+                System.out.print(matriz[x][y] + " ");
+            }
+
+            System.out.println("}");
+        }
     }
 }
